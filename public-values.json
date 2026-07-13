@@ -1,0 +1,9 @@
+{
+  "allowedUrls": [
+    "https://stacklabs.bio/",
+    "https://www.stacklabs.bio/",
+    "https://app.stacklabs.bio/",
+    "https://docs.stacklabs.bio/",
+    "https://github.com/StacklabsBio/stack-labs-docs"
+  ]
+}
