@@ -1,41 +1,191 @@
 :root {
-  --vp-c-brand-1: #13d7ed;
-  --vp-c-brand-2: #44e2f2;
-  --vp-c-brand-3: #00b9d1;
-  --vp-c-brand-soft: rgba(19, 215, 237, 0.14);
-  --vp-c-bg: #071317;
-  --vp-c-bg-alt: #0c1c21;
-  --vp-c-bg-elv: #10242a;
-  --vp-c-bg-soft: #10242a;
-  --vp-c-text-1: #f5fbfc;
-  --vp-c-text-2: #b7c9cd;
-  --vp-c-divider: rgba(170, 221, 228, 0.16);
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(120deg, #f5fbfc 12%, #13d7ed 82%);
-  --vp-home-hero-image-background-image: radial-gradient(circle, rgba(19, 215, 237, 0.22), transparent 68%);
-  --vp-home-hero-image-filter: blur(46px);
+  --stack-signal: #13d7ed;
+  --stack-action: #007f91;
+  --stack-action-hover: #006c7c;
+  --stack-canvas: #f7fafb;
+  --stack-paper: #ffffff;
+  --stack-paper-soft: #edf5f6;
+  --stack-ink: #10252a;
+  --stack-muted: #50676c;
+  --stack-divider: rgba(16, 37, 42, 0.14);
+  --stack-radius-card: 18px;
+  --stack-shadow: 0 18px 50px rgba(16, 37, 42, 0.08);
+  --vp-c-brand-1: var(--stack-action);
+  --vp-c-brand-2: var(--stack-action-hover);
+  --vp-c-brand-3: #005b69;
+  --vp-c-brand-soft: rgba(19, 215, 237, 0.12);
+  --vp-c-bg: var(--stack-canvas);
+  --vp-c-bg-alt: var(--stack-paper-soft);
+  --vp-c-bg-elv: var(--stack-paper);
+  --vp-c-bg-soft: var(--stack-paper-soft);
+  --vp-c-text-1: var(--stack-ink);
+  --vp-c-text-2: var(--stack-muted);
+  --vp-c-divider: var(--stack-divider);
+  --vp-home-hero-name-color: var(--stack-ink);
+  --vp-home-hero-image-background-image: none;
+  --vp-home-hero-image-filter: none;
 }
 
-html:not(.dark) {
-  --vp-c-bg: #f6fafb;
-  --vp-c-bg-alt: #edf5f6;
-  --vp-c-bg-elv: #ffffff;
-  --vp-c-bg-soft: #edf5f6;
-  --vp-c-text-1: #10252a;
-  --vp-c-text-2: #50676c;
-  --vp-c-divider: rgba(16, 37, 42, 0.14);
+.dark {
+  --stack-action: #45e1f0;
+  --stack-action-hover: #78eaf4;
+  --stack-canvas: #071317;
+  --stack-paper: #10242a;
+  --stack-paper-soft: #0c1c21;
+  --stack-ink: #f5fbfc;
+  --stack-muted: #b7c9cd;
+  --stack-divider: rgba(170, 221, 228, 0.16);
+  --stack-shadow: 0 18px 54px rgba(0, 0, 0, 0.24);
+  --vp-c-brand-1: var(--stack-action);
+  --vp-c-brand-2: var(--stack-action-hover);
+  --vp-c-brand-3: #a6f1f7;
+  --vp-c-brand-soft: rgba(19, 215, 237, 0.14);
+  --vp-c-bg: var(--stack-canvas);
+  --vp-c-bg-alt: var(--stack-paper-soft);
+  --vp-c-bg-elv: var(--stack-paper);
+  --vp-c-bg-soft: var(--stack-paper);
+  --vp-c-text-1: var(--stack-ink);
+  --vp-c-text-2: var(--stack-muted);
+  --vp-c-divider: var(--stack-divider);
+  --vp-home-hero-name-color: var(--stack-ink);
+}
+
+body {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+}
+
+.VPNavBar {
+  background: color-mix(in srgb, var(--stack-canvas) 88%, transparent);
+  backdrop-filter: saturate(160%) blur(18px);
 }
 
 .VPNavBarTitle .title,
 .VPHero .name,
+.VPHero .text,
 h1,
 h2 {
-  letter-spacing: -0.025em;
+  letter-spacing: -0.03em;
+}
+
+.VPNavBarTitle .logo {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+}
+
+.dark .VPNavBarTitle .logo {
+  filter: invert(1) brightness(1.2);
+}
+
+.VPNavBarTitle .title {
+  font-weight: 700;
+}
+
+.VPNavBarSearchButton {
+  border: 1px solid var(--stack-divider);
+  border-radius: 12px;
+  background: var(--stack-paper);
+}
+
+.VPHero .container {
+  align-items: center;
+}
+
+.VPHero .main {
+  max-width: 720px;
+}
+
+.VPHero .name {
+  color: var(--stack-ink);
+}
+
+.VPHero .text {
+  max-width: 700px;
+  color: var(--stack-ink);
+}
+
+.VPHero .tagline {
+  max-width: 620px;
+  line-height: 1.6;
+}
+
+.VPButton {
+  min-height: 44px;
+  border-radius: 999px;
+  padding-inline: 22px;
 }
 
 .VPButton.brand {
+  border-color: var(--stack-action);
+  color: #ffffff;
+  background: var(--stack-action);
+  box-shadow: 0 10px 30px rgba(0, 127, 145, 0.18);
+}
+
+.dark .VPButton.brand {
   color: #021013;
   box-shadow: 0 10px 32px rgba(19, 215, 237, 0.18);
+}
+
+.VPButton.alt {
+  border-color: var(--stack-divider);
+  background: var(--stack-paper);
+}
+
+.VPFeatures .items {
+  gap: 18px;
+}
+
+.VPFeature {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--stack-divider);
+  border-radius: var(--stack-radius-card);
+  background: var(--stack-paper);
+  box-shadow: var(--stack-shadow);
+  transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.VPFeature::before {
+  position: absolute;
+  top: 0;
+  right: 22px;
+  left: 22px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--stack-signal) 24%, var(--stack-signal) 76%, transparent);
+  content: "";
+  opacity: 0.62;
+}
+
+.VPFeature:hover,
+.VPFeature:focus-within {
+  border-color: color-mix(in srgb, var(--stack-signal) 52%, var(--stack-divider));
+  box-shadow: 0 20px 54px rgba(16, 37, 42, 0.12);
+  transform: translateY(-2px);
+}
+
+.dark .VPFeature:hover,
+.dark .VPFeature:focus-within {
+  box-shadow: 0 20px 54px rgba(0, 0, 0, 0.3);
+}
+
+.VPFeature .title {
+  color: var(--stack-ink);
+  letter-spacing: -0.015em;
+}
+
+.VPFeature .details,
+.VPFeature .link-text-value {
+  line-height: 1.65;
+}
+
+.VPDoc {
+  max-width: 760px;
+}
+
+.VPDoc h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
 }
 
 .VPDoc p,
@@ -44,9 +194,63 @@ h2 {
 }
 
 .VPDoc a {
+  font-weight: 550;
+  text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
 }
 
+.VPDoc blockquote {
+  border-left-color: var(--stack-signal);
+  border-radius: 0 12px 12px 0;
+  padding: 12px 18px;
+  background: var(--vp-c-brand-soft);
+}
+
+.VPSidebar,
+.VPDocAsideOutline {
+  border-color: var(--stack-divider);
+}
+
 .VPFooter {
-  border-top-color: var(--vp-c-divider);
+  border-top-color: var(--stack-divider);
+  background: var(--stack-paper-soft);
+}
+
+:where(a, button, [tabindex]):focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--stack-signal) 72%, white);
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .VPHero .main {
+    max-width: 100%;
+  }
+
+  .VPHero .actions {
+    gap: 10px;
+  }
+
+  .VPButton {
+    min-width: 132px;
+  }
+
+  .VPFeature {
+    border-radius: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .VPFeature:hover,
+  .VPFeature:focus-within {
+    transform: none;
+  }
 }
